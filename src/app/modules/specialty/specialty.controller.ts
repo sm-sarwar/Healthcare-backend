@@ -45,6 +45,7 @@ const deleteSpecialty = catchAsync(
     }
 )
 
+// update specialty 
 const updateSpecialty = catchAsync(
     async (req: Request, res: Response) => {
         const { id } = req.params;
