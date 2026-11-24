@@ -15,8 +15,6 @@ model User {
   accounts           Account[]
   patient            Patient?
 
-  needsPasswordChange Boolean @default(false)
-
   @@unique([email])
   @@map("user")
 }
