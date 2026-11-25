@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import { IndexRoutes } from "./app/routes";
 import { globalErrorHandler } from "./app/middlerware/globalErrorHandler";
+import { notFound } from "./app/middlerware/notFound";
 
 
 const app: Application = express();
@@ -21,5 +22,6 @@ app.get('/', (req: Request, res: Response) => {
 });
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.use(globalErrorHandler)
+app.use(notFound)
 
 export default app;
