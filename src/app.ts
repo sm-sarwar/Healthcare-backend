@@ -1,5 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import { IndexRoutes } from "./app/routes";
+import { globalErrorHandler } from "./app/middlerware/globalErrorHandler";
+
 
 const app: Application = express();
 
@@ -17,5 +19,7 @@ app.use("/api/v1", IndexRoutes)
 app.get('/', (req: Request, res: Response) => {
   res.send('HealthCare server is running');
 });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+app.use(globalErrorHandler)
 
 export default app;
